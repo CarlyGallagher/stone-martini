@@ -1,7 +1,7 @@
 const input = document.querySelector('#dropdown');
 const suggestions = document.querySelector('.suggestions ul');
 
-const dropdown =['boop'];
+const dropdown =['boop', 'beep', 'tequila'];
 function search(str){
     let results =[];
     const val = str.toLowerCase();
