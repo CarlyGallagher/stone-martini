@@ -1,7 +1,8 @@
 const input = document.querySelector('#dropdown');
 const suggestions = document.querySelector('.suggestions ul');
 
-const dropdown =['Jagermeister', 'Gordons Gin', 'tequila', 'Crown Royal', 'Jameson', 'Captain Morgan', 'Jack Daniels', 'Bacardi'];
+const dropdown =['Jagermeister', 'Gordons Gin', 'tequila', 'Crown Royal', 'Jameson', 'Captain Morgan', 'Jack Daniels', 'Bacardi', 'Patron', 'Lime', 'Tajin', 
+'salt'];
 function search(str){
     let results =[];
     const val = str.toLowerCase();
@@ -51,3 +52,9 @@ function useSuggestion(e) {
 
 input.addEventListener('keyup', searchHandler);
 suggestions.addEventListener('click', useSuggestion);
+
+function handle_form_submission()
+{
+  alert('Submit button pressed');
+  return false; //do not submit the form
+}
