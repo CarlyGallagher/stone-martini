@@ -1,0 +1,40 @@
+
+body {
+    background-color: rgba(0, 0, 0, 0.894);
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    background-color: rgb(245, 255, 131);
+    background-image: url("../images/lights.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: auto;
+    padding: 5%;
+    margin: 0;
+    background-blend-mode: multiply;
+    object-fit: contain;
+    text-align: center;
+}
+
+h1 {
+    color: white;
+    font-family: 'Solitreo', cursive;
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 200px;
+    max-height: 200px;
+    margin: 10px;
+    border-radius: 8px;
+}
+
+button :hover {
+    color: darkgreen;
+}
