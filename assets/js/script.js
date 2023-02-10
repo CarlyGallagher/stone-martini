@@ -18,11 +18,11 @@ function getDrink() {
             console.log(data)
             document.getElementById('drink-img').src = data.drinks[0].strDrinkThumb
         })
-        getRecipe()
+    getRecipe()
 }
 
 function getRecipe() {
-        result = 'margarita'
+    result = 'margarita'
     var recipeAPI = 'https://api.api-ninjas.com/v1/cocktail?name=' + result;
 
     fetch(recipeAPI, { headers: { 'X-Api-Key': ninjaKey } })
@@ -32,10 +32,15 @@ function getRecipe() {
         .then(function (data) {
             console.log(data)
             document.getElementById('cocktail-name').textContent = data[0].name;
-            for (var i = 0; i < data[0].ingredients.length; i++)
-                document.getElementById('recipe-ingred-' + i + '').textContent = data[0].ingredients[i];
+            renderIngredients(data[0].ingredients);
             document.getElementById('instruction').textContent = data[0].instructions;
 
         })
 
+}
+
+function renderIngredients(ingredients) {
+    for (var i = 0; i < ingredients.length; i++) {
+        document.getElementById('recipe-ingred-' + i + '').textContent = ingredients[i];
+    }
 }
