@@ -28,6 +28,10 @@ h1 {
     padding: 0;
 }
 
+h2 {
+    color: white;
+}
+
 img {
     max-width: 200px;
     max-height: 200px;
