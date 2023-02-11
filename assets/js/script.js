@@ -44,10 +44,15 @@ function getRecipe() {
         })
 
 }
-//displays results based on the ingredients on hand
+
+function ingredientList() {
+    
+}
+    
+    //displays results based on the ingredients on hand
 getResults()
 function getResults() {
-    var results = document.getElementById('onHand').childNodes;
+    var onHand = document.getElementById('onHand').childNodes;
 
     for (var i = 0; i < results.length; i++) {
         var resultsBtn = document.createElement('button')
