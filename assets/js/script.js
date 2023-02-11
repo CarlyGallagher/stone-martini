@@ -2,8 +2,10 @@
 var drinkImg = document.getElementById('drink-img')
 var ninjaKey = 'mbA0oOq8BxNEPSK4vFbW7Q==IfwPuDu0oCLy5XEX'
 var result;
-var input = document.querySelector('#dropdown');
+var input = document.getElementById('ingInput');
+var addBtn = document.getElementById('addBtn');
 var suggestions = document.querySelector('.suggestions ul');
+var onHand = document.getElementById('onHand')
 
 const dropdown =['Jagermeister', 'Gordons Gin', 'tequila', 'Crown Royal', 'Jameson', 'Captain Morgan', 'Jack Daniels', 'Bacardi', 'Patron', 'Lime', 'Tajin', 
 'salt'];
@@ -44,29 +46,36 @@ function getRecipe() {
         })
 
 }
+
+function ingredientsList () {
+var userIngredient = input.value
+console.log(userIngredient)
+var listIngredient = document.createElement('li')
+listIngredient.textContent = userIngredient
+onHand.append(listIngredient)
+}
 //displays results based on the ingredients on hand
 getResults()
 function getResults() {
-    var results = document.getElementById('onHand').childNodes;
 
-    for (var i = 0; i < results.length; i++) {
-        var resultsBtn = document.createElement('button')
-        resultsBtn.textContent = results.value
-        // vvvv element not yet named for results div <ul>
-        unorderedListEl.append(resultsBtn);
-    }
+     //for (var i = 0; i < results.length; i++) {
+        // var resultsBtn = document.createElement('button')
+        // resultsBtn.textContent = results.value
+         // vvvv element not yet named for results div <ul>
+        // unorderedListEl.append(resultsBtn);
+     //}
 
-    var chosenIngredients = ['tequila,lime,salt']
-    var recipeAPI = 'https://api.api-ninjas.com/v1/cocktail?ingredients=' + chosenIngredients;
-    fetch(recipeAPI, { headers: { 'X-Api-Key': ninjaKey } })
-        .then(function (response) {
+      var chosenIngredients = ['tequila,lime,salt']
+           var recipeAPI = 'https://api.api-ninjas.com/v1/cocktail?ingredients=' + chosenIngredients;
+     fetch(recipeAPI, { headers: { 'X-Api-Key': ninjaKey } })
+         .then(function (response) {
             return response.json();
-        })
-        .then(function (data) {
+          })
+          .then(function (data) {
             console.log(data)
             document.getElementById('cocktail-name').textContent = data[0].name;
         })
-}
+  }
 
 function renderIngredients(ingredients) {
     for (var i = 0; i < ingredients.length; i++) {
@@ -130,6 +139,8 @@ function handle_form_submission()
 //Event Listeners
 input.addEventListener('keyup', searchHandler);
 suggestions.addEventListener('click', useSuggestion);
+
+addBtn.addEventListener('click', ingredientsList)
 
 //Event listener for dynamic list or buttons (We need to change the variables)
 // btnHolder.addEventListener('click', (event)=> {
