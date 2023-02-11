@@ -2,8 +2,8 @@
 var drinkImg = document.getElementById('drink-img')
 var ninjaKey = 'mbA0oOq8BxNEPSK4vFbW7Q==IfwPuDu0oCLy5XEX'
 var result;
-const input = document.querySelector('#dropdown');
-const suggestions = document.querySelector('.suggestions ul');
+var input = document.querySelector('#dropdown');
+var suggestions = document.querySelector('.suggestions ul');
 
 const dropdown =['Jagermeister', 'Gordons Gin', 'tequila', 'Crown Royal', 'Jameson', 'Captain Morgan', 'Jack Daniels', 'Bacardi', 'Patron', 'Lime', 'Tajin', 
 'salt'];
@@ -25,10 +25,11 @@ function getDrink() {
         })
     getRecipe()
 }
-
+//grabs the recipe based on the result that the user selects
 function getRecipe() {
     result = 'margarita'
     var recipeAPI = 'https://api.api-ninjas.com/v1/cocktail?name=' + result;
+    
 
     fetch(recipeAPI, { headers: { 'X-Api-Key': ninjaKey } })
         .then(function (response) {
@@ -42,6 +43,29 @@ function getRecipe() {
 
         })
 
+}
+//displays results based on the ingredients on hand
+getResults()
+function getResults() {
+    var results = document.getElementById('onHand').childNodes;
+
+    for (var i = 0; i < results.length; i++) {
+        var resultsBtn = document.createElement('button')
+        resultsBtn.textContent = results.value
+        // vvvv element not yet named for results div <ul>
+        unorderedListEl.append(resultsBtn);
+    }
+
+    var chosenIngredients = ['tequila,lime,salt']
+    var recipeAPI = 'https://api.api-ninjas.com/v1/cocktail?ingredients=' + chosenIngredients;
+    fetch(recipeAPI, { headers: { 'X-Api-Key': ninjaKey } })
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data)
+            document.getElementById('cocktail-name').textContent = data[0].name;
+        })
 }
 
 function renderIngredients(ingredients) {
@@ -106,3 +130,9 @@ function handle_form_submission()
 //Event Listeners
 input.addEventListener('keyup', searchHandler);
 suggestions.addEventListener('click', useSuggestion);
+
+//Event listener for dynamic list or buttons (We need to change the variables)
+// btnHolder.addEventListener('click', (event)=> {
+//     cityName = event.target.textContent;
+//     getRecipe()
+// }) 
