@@ -25,47 +25,44 @@
         </div>
         <!-- Recipe and Results  -->
         <section class="column is-half">
-        <h2 id="cocktail-name">Recipe</h2>
-        <div id="recipe">
-            <h3>Ingredients</h3>
-            <ul >
-                <li id="recipe-ingred-0"></li>
-                <li id="recipe-ingred-1"></li>
-                <li id="recipe-ingred-2"></li>
-                <li id="recipe-ingred-3"></li>
-                <li id="recipe-ingred-4"></li>
-                <li id="recipe-ingred-5"></li>
-                <li id="recipe-ingred-6"></li>
-                <li id="recipe-ingred-7"></li>
-                <li id="recipe-ingred-8"></li>
-                <li id="recipe-ingred-9"></li>
-            </ul>
-            <h3>Instructions:</h3>
-            <p id="instruction"></p>
-        </div>
-        <!-- Results Div  -->
-        <h2></h2>
-        <div></div>
-    </section>
-    <div>
-        <!-- drop down  -->
-        <div class="search-container">
-            <input type="text" name="Drinks" id="ingInput" placeholder="Ingredients">
-            <div class="suggestions column is-half">
-                <h2>Ingredients on Hand</h2>
-                <ul id="onHand"></ul>
-                <button type="sumbit" id="addBtn">Add</button>
+            <h2 id="cocktail-name">Recipe</h2>
+            <div id="recipe">
+                <h3>Ingredients</h3>
+                <ul>
+                    <li id="recipe-ingred-0"></li>
+                    <li id="recipe-ingred-1"></li>
+                    <li id="recipe-ingred-2"></li>
+                    <li id="recipe-ingred-3"></li>
+                    <li id="recipe-ingred-4"></li>
+                    <li id="recipe-ingred-5"></li>
+                    <li id="recipe-ingred-6"></li>
+                    <li id="recipe-ingred-7"></li>
+                    <li id="recipe-ingred-8"></li>
+                    <li id="recipe-ingred-9"></li>
+                </ul>
+                <h3>Instructions:</h3>
+                <p id="instruction"></p>
+            </div>
+            <!-- Results Div  -->
+            <h2>Drinks</h2>
+            <div id="resultsContainer">
+                
+            </div>
+        </section>
+        <div>
+            <!-- drop down  -->
+            <div class="search-container">
+                <input type="text" name="Drinks" id="ingInput" placeholder="Ingredients"><button type="sumbit"
+                    id="addBtn">Add</button>
+                <div class="suggestions column is-half">
+                    <h2>Ingredients on Hand</h2>
+                    <ul id="onHand"></ul>
+                    <button type='submit'>Search</button>
+                </div>
             </div>
         </div>
-    </div>
-        <!-- Search Button  -->
-        <div class="search_container">
-            <form id="search-btn" onsubmit="return handle_form_submission()">
-            
-              <button type='submit'>Search</button>
-            </form>
-            </div>
-    <script src="./assets/js/script.js"></script>
+
+        <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
