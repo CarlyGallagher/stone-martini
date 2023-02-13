@@ -1,6 +1,7 @@
-
+html,
 body {
     background-color: rgba(0, 0, 0, 0.894);
+    height: 100%;
     padding: 0;
     margin: 0;
 }
@@ -28,17 +29,40 @@ h1 {
     padding: 0;
 }
 
-h2 {
+h2,
+h3 {
+    color: white;
+}
+
+p {
+    color: white;
+}
+
+li {
     color: white;
 }
 
 img {
-    max-width: 200px;
-    max-height: 200px;
     margin: 10px;
+    align-content: center;
     border-radius: 8px;
 }
 
-button :hover {
-    color: darkgreen;
+button {
+    color: black;
+    background-color: rgb(245, 255, 131);
+    font-family: 'Solitreo', cursive;
+    border-radius: 10px;
+}
+
+button:hover {
+    color: blue;
+}
+
+.search-container {
+    margin-left: 10px;
+}
+
+input {
+    border-radius: 10px;
 }

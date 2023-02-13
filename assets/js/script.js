@@ -12,7 +12,7 @@ var result;
 
 //Functions
 function getDrink() {
-   // var result = 'margarita'
+    // var result = 'margarita'
     var drinkImgAPI = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + result;
 
     fetch(drinkImgAPI)
@@ -23,15 +23,15 @@ function getDrink() {
             console.log(data)
             if (data.drinks === null) {
                 document.getElementById('drink-img').src = './assets/images/empty-cocktail.jpg'
-            }else {
-            document.getElementById('drink-img').src = data.drinks[0].strDrinkThumb
+            } else {
+                document.getElementById('drink-img').src = data.drinks[0].strDrinkThumb
             }
         })
     getRecipe()
 }
 //grabs the recipe based on the result that the user selects
 function getRecipe() {
-   // result = 'margarita'
+    // result = 'margarita'
     var recipeAPI = 'https://api.api-ninjas.com/v1/cocktail?name=' + result;
 
 
@@ -41,7 +41,7 @@ function getRecipe() {
         })
         .then(function (data) {
             console.log(data)
-            document.getElementById('cocktail-name').textContent = data[0].name;
+            document.getElementById('cocktail-name').textContent = data[0].name.toUpperCase();
             renderIngredients(data[0].ingredients);
             document.getElementById('instruction').textContent = data[0].instructions;
 
@@ -62,7 +62,7 @@ function getResults() {
 
 
 
-    var chosenIngredients = ['tequila','lime','salt']
+    var chosenIngredients = ['tequila', 'lime', 'salt']
     var recipeAPI = 'https://api.api-ninjas.com/v1/cocktail?ingredients=' + chosenIngredients;
     fetch(recipeAPI, { headers: { 'X-Api-Key': ninjaKey } })
         .then(function (response) {
@@ -73,13 +73,13 @@ function getResults() {
             // document.getElementById('cocktail-name').textContent = data[0].name;
             for (var i = 0; i < data.length; i++) {
                 var resultsBtn = document.createElement('button')
-                resultsBtn.textContent = data[i].name
+                resultsBtn.textContent = data[i].name.toUpperCase()
                 // vvvv element not yet named for results div <ul>
                 resultsContainer.append(resultsBtn);
             }
         })
 
-   
+
 }
 
 function renderIngredients(ingredients) {
@@ -147,7 +147,7 @@ function handle_form_submission() {
 addBtn.addEventListener('click', ingredientsList)
 
 //Event listener for dynamic list or buttons (We need to change the variables)
- resultsContainer.addEventListener('click', (event)=> {
-     result = event.target.textContent;
-     getDrink()
- }) 
+resultsContainer.addEventListener('click', (event) => {
+    result = event.target.textContent;
+    getDrink()
+}) 
