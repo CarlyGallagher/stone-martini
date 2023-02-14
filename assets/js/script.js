@@ -5,8 +5,9 @@ var result;
 var input = document.getElementById('ingInput');
 var addBtn = document.getElementById('addBtn');
 var suggestions = document.querySelector('.suggestions ul');
-var onHand = document.getElementById('onHand')
-var resultsContainer = document.getElementById('resultsContainer')
+var onHand = document.getElementById('onHand');
+var resultsContainer = document.getElementById('resultsContainer');
+var clearIngredients = document.getElementById('clear');
 var result;
 
 
@@ -54,7 +55,10 @@ function ingredientsList() {
     var listIngredient = document.createElement('li')
     listIngredient.textContent = userIngredient
     onHand.append(listIngredient)
+    input.value = ''
 }
+
+
 //displays results based on the ingredients on hand
 function getResults() {
     const userInput = []
@@ -85,13 +89,18 @@ function renderIngredients(ingredients) {
     }
 }
 
-
-
+//clears list and rendered content
+ function clear() {
+onHand.innerHTML = '';
+resultsContainer.innerHTML = '';
+}
 
 
 //Event Listeners
 submit.addEventListener('click', getResults)
 addBtn.addEventListener('click', ingredientsList)
+clearIngredients.addEventListener('click', clear)
+
 
 //Event listener for dynamic list or buttons (We need to change the variables)
 resultsContainer.addEventListener('click', (event) => {
