@@ -8,7 +8,7 @@ var suggestions = document.querySelector('.suggestions ul');
 var onHand = document.getElementById('onHand');
 var resultsContainer = document.getElementById('resultsContainer');
 var clearIngredients = document.getElementById('clear');
-var result;
+
 
 
 //Functions
@@ -31,10 +31,7 @@ function getDrink() {
 }
 //grabs the recipe based on the result that the user selects
 function getRecipe() {
-    
     var recipeAPI = 'https://api.api-ninjas.com/v1/cocktail?name=' + result;
-
-
     fetch(recipeAPI, { headers: { 'X-Api-Key': ninjaKey } })
         .then(function (response) {
             return response.json();
@@ -61,6 +58,7 @@ function ingredientsList() {
 
 //displays results based on the ingredients on hand
 function getResults() {
+    clearResulsts();
     const userInput = []
     userInput.push(onHand.innerText.split('\n'))
     console.log(userInput)
@@ -93,6 +91,10 @@ function renderIngredients(ingredients) {
  function clear() {
 onHand.innerHTML = '';
 resultsContainer.innerHTML = '';
+}
+
+function clearResulsts() {
+    resultsContainer.innerHTML = '';
 }
 
 
