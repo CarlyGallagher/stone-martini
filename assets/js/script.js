@@ -58,7 +58,7 @@ function ingredientsList() {
 //displays results based on the ingredients on hand
 function getResults() {
     const userInput = []
-    userInput.push(onHand.innerText)
+    userInput.push(onHand.innerText.split('\n'))
     console.log(userInput)
     
 
